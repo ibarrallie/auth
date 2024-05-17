@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     # logout the user
+    #get rid of cookies
     flash["notice"] = "Goodbye."
     redirect_to "/login"
   end

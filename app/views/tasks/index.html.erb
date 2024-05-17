@@ -1,9 +1,11 @@
 <h1>Do the TODOs</h1>
 
+<% if @current_user %>
 <form action="/tasks" method="post">
   <input type="text" name="description">
   <button>Add new task</button>
 </form>
+<% end %>
 
 <table>
   <% for task in @tasks %>
@@ -12,10 +14,12 @@
         <%= task["description"] %>
       </td>
       <td>
+        <% if @current_user %>
         <form action="/tasks/<%= task["id"] %>" method="post">
           <input type="hidden" name="_method" value="delete">
           <button>Complete</button>
         </form>
+        <% end %>
       </td>
     </tr>
   <% end %>
