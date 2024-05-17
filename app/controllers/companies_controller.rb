@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    @current_user = User.find_by({"id" => cookies["user_id"]})
   end
 
   def show
